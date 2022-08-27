@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">My Subscribers</string>
+
+    <!-- SubscriberFragment-->
     <string name="input_name">Name</string>
     <string name="input_email">E-mail</string>
+    <string name="subscriber_button">Add</string>
+    <string name="subscriber_title">Subscriber</string>
 </resources>

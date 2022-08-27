@@ -15,7 +15,7 @@ class SubscriberFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_subscriber, container, false)
+        return inflater.inflate(R.layout.subscriber_fragment, container, false)
     }
 
 
