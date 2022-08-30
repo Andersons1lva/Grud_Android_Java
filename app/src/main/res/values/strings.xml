@@ -8,5 +8,8 @@
     <string name="subscriber_title">Subscriber</string>
     <string name="subscriber_inserted_successfully">Subscriber was successfully inserted</string>
     <string name="subscriber_error_to_insert">There was an error when inserting Subscriber</string>
+    <string name="btn_floating_action">Floating Action</string>
+    <string name="tv_name">Anderson Silva</string>
+    <string name="tv_email">andersons1lva@yahoo.com.br</string>
 
 </resources>
