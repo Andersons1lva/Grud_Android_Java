@@ -9,14 +9,18 @@ import com.anderson.mysubscribers.data.db.entity.SubscriberEntity
 import com.anderson.mysubscribers.databinding.SubscriberItemBinding
 
 
-class SubscriberListAdapter(
-    private val subscribers: List<SubscriberEntity>,
-    private val context: Context
+class SubscriberListAdapter(private val context: Context,
+    private val subscribers: List<SubscriberEntity>
 ) : RecyclerView.Adapter<SubscriberListAdapter.SubscriberListViewHolder>() {
 
     // no onCreateViewHolder e para inflar o layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubscriberListViewHolder {
-        val binding = SubscriberItemBinding.inflate(LayoutInflater.from(context), parent, false)
+
+        val binding = SubscriberItemBinding.inflate(
+            LayoutInflater.from(context),
+            parent,
+            false
+        )
         return SubscriberListViewHolder(binding)
     }
 

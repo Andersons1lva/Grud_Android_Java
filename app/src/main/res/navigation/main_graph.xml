@@ -9,7 +9,7 @@
         android:id="@+id/subscriberListFragment"
         android:name="com.anderson.mysubscribers.ui.subscriberList.SubscriberListFragment"
         android:label="fragment_subscriber_list"
-        tools:layout="@layout/fragment_subscriber_list" />
+        tools:layout="@layout/subscriber_list_fragment" />
 
     <fragment
         android:id="@+id/subscriberFragment"
