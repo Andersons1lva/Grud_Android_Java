@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/layout/fragment_subscriber_list.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/subscriber_fragment.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/subscriber_item.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/subscriber_list_fragment.xml" value="0.35625" />
       </map>
     </option>
   </component>
@@ -17,7 +18,10 @@
       <item index="0" class="java.lang.String" itemvalue="androidx.room.Entity" />
     </list>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

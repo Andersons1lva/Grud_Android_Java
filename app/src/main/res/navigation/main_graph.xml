@@ -8,14 +8,23 @@
     <fragment
         android:id="@+id/subscriberListFragment"
         android:name="com.anderson.mysubscribers.ui.subscriberList.SubscriberListFragment"
-        android:label="fragment_subscriber_list"
-        tools:layout="@layout/subscriber_list_fragment" />
+        android:label="@string/fragment_subscriber_list"
+        tools:layout="@layout/subscriber_list_fragment" >
+        <action
+            android:id="@+id/action_subscriberListFragment_to_subscriberFragment"
+            app:destination="@id/subscriberFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/subscriberFragment"
         android:name="com.anderson.mysubscribers.ui.subscriber.SubscriberFragment"
         android:label="@string/subscriber_title"
-        tools:layout="@layout/subscriber_fragment" />
+        tools:layout="@layout/subscriber_fragment" >
+        <argument
+            android:name="subscriber"
+            app:argType="com.anderson.mysubscribers.data.db.entity.SubscriberEntity"
+            app:nullable="true" />
+    </fragment>
 
 
 </navigation>

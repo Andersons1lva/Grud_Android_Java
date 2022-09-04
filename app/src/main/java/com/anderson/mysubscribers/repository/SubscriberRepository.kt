@@ -1,6 +1,5 @@
 package com.anderson.mysubscribers.repository
 
-import androidx.lifecycle.LiveData
 import com.anderson.mysubscribers.data.db.entity.SubscriberEntity
 
 interface SubscriberRepository {
@@ -13,5 +12,5 @@ interface SubscriberRepository {
 
     suspend fun deleteAllSubscriber()
 
-     fun getAllSubscriber(): LiveData<List<SubscriberEntity>>
+    suspend fun getAllSubscriber(): List<SubscriberEntity>
 }

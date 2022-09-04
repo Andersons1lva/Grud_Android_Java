@@ -9,19 +9,16 @@ import com.anderson.mysubscribers.data.db.entity.SubscriberEntity
 import com.anderson.mysubscribers.databinding.SubscriberItemBinding
 
 
-class SubscriberListAdapter(private val context: Context,
-    private val subscribers: List<SubscriberEntity>
+class SubscriberListAdapter(private val subscribers: List<SubscriberEntity>
 ) : RecyclerView.Adapter<SubscriberListAdapter.SubscriberListViewHolder>() {
+
+    var onItemClick: ((entity: SubscriberEntity) -> Unit)? = null
 
     // no onCreateViewHolder e para inflar o layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubscriberListViewHolder {
-
-        val binding = SubscriberItemBinding.inflate(
-            LayoutInflater.from(context),
-            parent,
-            false
+        return SubscriberListViewHolder(
+            SubscriberItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
-        return SubscriberListViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: SubscriberListViewHolder, position: Int) {
@@ -30,7 +27,7 @@ class SubscriberListAdapter(private val context: Context,
 
     override fun getItemCount() = subscribers.size
 
-    class SubscriberListViewHolder(binding: SubscriberItemBinding) :
+    inner class SubscriberListViewHolder(private val binding: SubscriberItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val textViewSubscriberName: TextView = binding.textSubscriberName
         private val textViewSubscriberEmail: TextView = binding.textSubscriberEmail
@@ -38,6 +35,10 @@ class SubscriberListAdapter(private val context: Context,
         fun bindView(subscriber: SubscriberEntity) {
             textViewSubscriberName.text = subscriber.name
             textViewSubscriberEmail.text = subscriber.email
+
+            itemView.setOnClickListener {
+                onItemClick?.invoke(subscriber)
+            }
         }
 
     }

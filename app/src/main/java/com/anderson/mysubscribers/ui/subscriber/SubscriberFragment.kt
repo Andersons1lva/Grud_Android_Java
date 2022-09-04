@@ -3,13 +3,14 @@ package com.anderson.mysubscribers.ui.subscriber
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.anderson.mysubscribers.R
 import com.anderson.mysubscribers.data.db.AppDatabase
 import com.anderson.mysubscribers.data.db.dao.SubscriberDAO
@@ -19,6 +20,7 @@ import com.anderson.mysubscribers.repository.DatabaseDataSource
 import com.anderson.mysubscribers.repository.SubscriberRepository
 import com.google.android.material.snackbar.Snackbar
 
+@Suppress("UNCHECKED_CAST")
 class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
 
     private var _binding: SubscriberFragmentBinding? = null
@@ -33,12 +35,6 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-
     private val viewModel: SubscriberViewModel by viewModels {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -50,6 +46,8 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
             }
         }
     }
+
+    //private val args: SubscriberFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -64,6 +62,9 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
                 is SubscriberViewModel.SubscriberState.Inserted -> {
                     clearFields()
                     hideKeyboard()
+                    requireView().requestFocus()
+
+                    findNavController().popBackStack()
                 }
             }
         }
@@ -96,4 +97,8 @@ class SubscriberFragment : Fragment(R.layout.subscriber_fragment) {
     }
 
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
